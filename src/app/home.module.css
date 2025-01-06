@@ -105,17 +105,16 @@
   }
   
   .loading {
-    text-align: left;
-    font-size: 13px;
+    text-align: center;
+    font-size: 18px;
     color: #007bff;
-    margin: 2px 0 0 0;
-
   }
   
   .error {
-    text-align: center;
-    font-size: 18px;
+    text-align: left;
+    font-size: 13px;
     color: red;
+    margin: 2px 0 0 0;
   }
   
   .noData {
@@ -142,6 +141,7 @@
     .filterInput{
       width: 100%;
     }
+    
   }
   
   .formGroup {
@@ -188,4 +188,10 @@
   
   .noScroll {
     overflow: hidden;
+  }
+  .heading{
+    text-align: center;
+   color: #007bff;
+   text-decoration: underline;
+    font-weight: 600;
   }
