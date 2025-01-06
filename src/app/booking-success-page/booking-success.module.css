@@ -1,53 +1,70 @@
 .main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
-  }
-  
-  .img {
-    width: 300px; 
-    height: auto;
-    margin-bottom: 20px; 
-  }
-  
-  .h3 {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 20px; 
-  }
-  
-  .div {
-    margin: 20px 0 0 0;
-    display: flex;
-    gap: 15px; 
-  }
-  
-  .button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #007bff; /* Primary blue color */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-  }
-  
-  .button:active {
-    transform: scale(0.98); /* Slightly shrink on click */
-  }
-  
-  .button:first-of-type {
-    background-color: #28a745; /* Green for "Go to Bookings" button */
-  }
-  
-  .button:first-of-type:hover {
-    background-color: #1e7e34; /* Darker green on hover */
-  }
-  
+  text-align: center;
+  padding: 30px;
+  font-family: Arial, sans-serif;
+}
+
+.img {
+  width: 250px;
+  margin-bottom: 20px;
+  margin: auto;
+}
+
+.heading {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.details {
+  margin: 20px auto;
+  padding: 20px;
+  background: #f9fafc;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  max-width: 500px;
+  text-align: left;
+}
+
+.details p {
+  margin: 8px 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.details p strong {
+  color: #555;
+}
+
+.div {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.booking{
+  background-color: #13a071;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.button:hover {
+  background-color: #0056b3;
+}
+.booking:hover{
+  background-color: #1d6d4c;
+
+}
