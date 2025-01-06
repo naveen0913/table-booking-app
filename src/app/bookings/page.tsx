@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
@@ -127,7 +128,11 @@ function Bookings() {
         </div>
       ))
     ) : (
-      <p>No bookings found.</p>
+      <div className={styles.noContent}>
+        <img src="https://img.freepik.com/free-vector/no-data-concept-illustration_114360-536.jpg?t=st=1736161572~exp=1736165172~hmac=fb045e0f9e05e7aad7db761e71b4b929251ed1a91f0e75bedf24436d5a501202&w=740" alt="no-data" className={styles.img} />
+      <h2 className={styles.head}>No bookings found</h2>
+      <button className={styles.btn} onClick={()=>router.push('/')} >start booking</button>
+      </div>
     )}
   </div>
 </div>
