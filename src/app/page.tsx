@@ -339,6 +339,9 @@ export default function Home() {
                           onChange={(e) => setFormName(e.target.value)}
                           required
                         />
+                                                {!/^[A-Za-z\s]+$/.test(formName) && formName && (
+                          <p className={styles.error}>Name must contain only alphabets and spaces.</p>
+                        )}
                       </div>
                       <div className={styles.formGroup}>
                         <label htmlFor="contact">Contact</label>
@@ -350,6 +353,9 @@ export default function Home() {
                           onChange={(e) => setFormContact(e.target.value)}
                           required
                         />
+                        {!/^[6-9]\d{9}$/.test(formContact) && formContact && (
+                          <p className={styles.error}>Enter a valid 10-digit Indian phone number starting with 6-9.</p>
+                        )}
                       </div>
                       <div className={styles.formGroup}>
                         <label htmlFor="guests">Guests</label>
