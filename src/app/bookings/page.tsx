@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useEffect, useState } from "react";
@@ -28,7 +29,8 @@ function Bookings() {
         }
         const data = await response.json();
         setBookings(data.bookings);
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        console.log("data",data.bookings);
+        
       } catch (error: any) {
         setError(error.message);
       } finally {
@@ -47,47 +49,89 @@ function Bookings() {
     return <p>Error: {error}</p>;
   }
 
+  const deleteBooking = async (bookingId: string, tableId: string) => {
+    try {
+      setLoading(true); // Showing loading during API call
+      const response = await fetch(
+        `${constants.baseUrl}/booking/${bookingId}/${tableId}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to delete booking");
+      }
+
+      // Removing the booking data from UI
+      setBookings((prevBookings) =>
+        prevBookings.filter((booking: any) => booking.bookingId !== bookingId)
+      );
+    } catch (error: any) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div className={styles.container}>
-      <p className={styles.back} onClick={() => router.push("/")}>
-        Back to home
-      </p>
-      <div className={styles.grid}>
-        {bookings.length > 0 ? (
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          bookings.map((booking:any, index) => (
-            <div key={index} className={styles.card}>
-              <h2 className={styles.name}>{booking.name}</h2>
-              <p>
-                <strong>Date : </strong> {booking.date}
-              </p>
-              <p>
-                <strong>Time : </strong> {booking.time}
-              </p>
-              <p>
-                <strong>Guests : </strong> {booking.guests} members
-              </p>
-              <p>
-                <strong>Contact : </strong> {booking.contact}
-              </p>
-              <div className={styles.tableInfo}>
-                <p>
-                  <strong>Table Type : </strong> {booking.table.tableType}
-                </p>
-                <p>
-                  <strong>Category : </strong> {booking.table.category}
-                </p>
-                <p>
-                  <strong>Capacity : </strong> {booking.table.capacity}
-                </p>
+<div className={styles.container}>
+  <p className={styles.back} onClick={() => router.push("/")}>
+    Back to home
+  </p>
+  <div className={styles.grid}>
+    {bookings.length > 0 ? (
+      bookings.map((booking: any, index) => (
+        <div key={index} className={styles.card}>
+          <div className={styles.cardContent}>
+            <h2 className={styles.name}>{booking.name}</h2>
+            <div className={styles.bookingInfo}>
+              <div className={styles.infoRow}>
+                <span className={styles.label}>Date:</span>
+                <span className={styles.value}>{booking.date}</span>
+              </div>
+              <div className={styles.infoRow}>
+                <span className={styles.label}>Time:</span>
+                <span className={styles.value}>{booking.time}</span>
+              </div>
+              <div className={styles.infoRow}>
+                <span className={styles.label}>Guests:</span>
+                <span className={styles.value}>{booking.guests} members</span>
+              </div>
+              <div className={styles.infoRow}>
+                <span className={styles.label}>Contact:</span>
+                <span className={styles.value}>{booking.contact}</span>
               </div>
             </div>
-          ))
-        ) : (
-          <p>No bookings found.</p>
-        )}
-      </div>
-    </div>
+            <div className={styles.tableInfo}>
+              <div className={styles.infoRow}>
+                <span className={styles.label}>Table Type:</span>
+                <span className={styles.value}>{booking.table.tableType}</span>
+              </div>
+              <div className={styles.infoRow}>
+                <span className={styles.label}>Category:</span>
+                <span className={styles.value}>{booking.table.category}</span>
+              </div>
+              <div className={styles.infoRow}>
+                <span className={styles.label}>Capacity:</span>
+                <span className={styles.value}>{booking.table.capacity}</span>
+              </div>
+            </div>
+          </div>
+          <button
+            className={styles.deleteButton}
+            onClick={() => deleteBooking(booking.bookingId, booking.table.table_id)}
+          >
+            Delete Booking
+          </button>
+        </div>
+      ))
+    ) : (
+      <p>No bookings found.</p>
+    )}
+  </div>
+</div>
+
   );
 }
 
