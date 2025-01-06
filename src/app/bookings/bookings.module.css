@@ -1,4 +1,4 @@
-
+/* Container */
 .container {
   display: flex;
   flex-direction: column;
@@ -15,7 +15,7 @@
   max-width: 900px;
 }
 
-
+/* Card Styling */
 .card {
   background-color: #fff;
   border-radius: 12px;
@@ -103,4 +103,28 @@
 
 .deleteButton:hover {
   background-color: #c0392b;
+}
+.noContent{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.head{
+  font-size: 30px;
+  color: #e74c3c;
+}
+.img{
+  width: 460px;
+}
+.btn{
+  background-color: #2263b8;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 25px;
+  font-size: 1rem;
+  width: 80%;
+  max-width: 200px;
 }
