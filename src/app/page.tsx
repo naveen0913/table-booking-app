@@ -141,6 +141,7 @@ export default function Home() {
     }
 
     if (!userToken) {
+      alert("Login to reserve the table");
       router.push('/login');
     }
 
@@ -156,7 +157,9 @@ export default function Home() {
         throw new Error("Invalid login credentials");
       }
 
-      const data = response.json();
+      const data = await response.json();
+      sessionStorage.setItem('bookingData', JSON.stringify(data.data));
+
       router.push("/booking-success-page")
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
