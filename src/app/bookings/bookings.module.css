@@ -1,53 +1,106 @@
+
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    width: 100%;
-    max-width: 700px;
-  }
-  
-  .card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    color: #333;
-  }
-  
-  .name {
-    font-size: 1.5rem;
-    color: #007bff;
-    margin-bottom: 10px;
-  }
-  
-  .p {
-    margin: 5px 0;
-    font-size: 1rem;
-  }
-  
-  .tableInfo {
-    margin-top: 15px;
-    padding-top: 10px;
-    border-top: 1px solid #ddd;
-  }
-  
-  .back {
-    cursor: pointer;
-    margin: 20px;
-    font-size: 1rem;
-    color: #007bff;
-    text-decoration: underline;
-  }
-  
-  .back:hover {
-    color: #0056b3;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 25px;
+  width: 100%;
+  max-width: 900px;
+}
+
+
+.card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+/* Title */
+.name {
+  font-size: 1.8rem;
+  color: #007bff;
+  text-align: center;
+}
+
+.bookingInfo,
+.tableInfo {
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-color: #f9fafc;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.label {
+  font-weight: bold;
+  color: #555;
+  flex: 1;
+  text-align: left;
+}
+
+.value {
+  flex: 2;
+  text-align: right;
+  color: #333;
+}
+
+/* Back Button */
+.back {
+  cursor: pointer;
+  margin: 20px;
+  font-size: 1rem;
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.back:hover {
+  color: #0056b3;
+}
+
+/* Delete Button */
+.deleteButton {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  width: 80%;
+  max-width: 200px;
+}
+
+.deleteButton:hover {
+  background-color: #c0392b;
+}
