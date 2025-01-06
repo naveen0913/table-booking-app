@@ -5,7 +5,6 @@ import React, { useState, useEffect } from "react";
 import styles from "./home.module.css";
 import { useRouter } from "next/navigation";
 import { constants } from "../lib/constants";
-import Image from "next/image";
 
 
 
@@ -158,6 +157,7 @@ export default function Home() {
       }
 
       const data = await response.json();
+      console.log("data", data.data);
       sessionStorage.setItem('bookingData', JSON.stringify(data.data));
 
       router.push("/booking-success-page")
@@ -229,7 +229,7 @@ export default function Home() {
                 <img
                   src=
                   "https://img.freepik.com/free-photo/table-set-dinning-table_1339-6412.jpg?ga=GA1.1.1338387062.1735995170&semt=ais_hybrid"
-                  
+
                   alt="Table"
                   className={styles.image}
                 />
@@ -300,10 +300,11 @@ export default function Home() {
             >
               &#8203;
             </span>
-            <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full sm:p-6">
+            <div className="inline-block align-center bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full sm:p-6">
               <div className="sm:items-start">
-                <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                <div className="mt-3 text-left sm:mt-0 sm:ml-4 sm:text-left">
                   <div className="mt-2">
+                    <div className={styles.heading} >Selected Table Details</div>
                     <form onSubmit={handleSubmitBooking}>
                       <div className={styles.formGroup}>
                         <label htmlFor="date">Date</label>
@@ -339,8 +340,8 @@ export default function Home() {
                           onChange={(e) => setFormName(e.target.value)}
                           required
                         />
-                                                {!/^[A-Za-z\s]+$/.test(formName) && formName && (
-                          <p className={styles.error}>Name must contain only alphabets and spaces.</p>
+                        {!/^[A-Za-z\s]+$/.test(formName) && formName && (
+                          <p className={styles.error}>Name must contain only alphabets and spaces</p>
                         )}
                       </div>
                       <div className={styles.formGroup}>
@@ -351,11 +352,13 @@ export default function Home() {
                           className={styles.formInput}
                           value={formContact}
                           onChange={(e) => setFormContact(e.target.value)}
+
                           required
                         />
                         {!/^[6-9]\d{9}$/.test(formContact) && formContact && (
-                          <p className={styles.error}>Enter a valid 10-digit Indian phone number starting with 6-9.</p>
+                          <p className={styles.error}>Enter a valid 10-digit Indian phone number</p>
                         )}
+
                       </div>
                       <div className={styles.formGroup}>
                         <label htmlFor="guests">Guests</label>
@@ -364,6 +367,7 @@ export default function Home() {
                           className={styles.formInput}
                           value={formGuests}
                           onChange={(e) => setFormGuests(e.target.value)}
+
                           required
                         >
                           <option value="">Select</option>
